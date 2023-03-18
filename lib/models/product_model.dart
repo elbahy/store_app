@@ -17,7 +17,7 @@ class ProductModel {
     return ProductModel(
         id: jsonData['id'],
         title: jsonData['title'],
-        price: jsonData['price'],
+        price: double.parse(jsonData['price'].toString()),
         description: jsonData['description'],
         image: jsonData['image'],
         rating: RatingModel.fromJson(jsonData['rating']));
@@ -29,6 +29,8 @@ class RatingModel {
   int count;
   RatingModel({required this.rate, required this.count});
   factory RatingModel.fromJson(jsonData) {
-    return RatingModel(rate: jsonData['rate'], count: jsonData['count']);
+    return RatingModel(
+        rate: double.parse(jsonData['rate'].toString()),
+        count: jsonData['count']);
   }
 }
