@@ -18,40 +18,37 @@ class ItemList extends StatelessWidget {
               gridDelegate:
                   SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
               itemBuilder: (context, index) {
-                return Container(
-                  child: Card(
-                      semanticContainer: true,
-                      elevation: 5,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: Column(
-                        children: [
-                          Image.network(
-                            product[index].image,
-                            height: 50,
-                          ),
-                          Text(product[index].title),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(r'$' '${product[index].price}'),
-                              IconButton(
-                                color: Colors.red,
-                                icon: Icon(
-                                  Icons.favorite,
-                                ),
-                                onPressed: () {},
-                              )
-                            ],
-                          )
-                        ],
-                      )),
-                );
+                return Card(
+                    elevation: 5,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Column(
+                      children: [
+                        Image.network(
+                          product[index].image,
+                          height: 100,
+                        ),
+                        Text(product[index].title.substring(0, 15)),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(r'$' '${product[index].price}'),
+                            IconButton(
+                              color: Colors.red,
+                              icon: Icon(
+                                Icons.favorite,
+                              ),
+                              onPressed: () {},
+                            )
+                          ],
+                        )
+                      ],
+                    ));
               },
             );
           } else {
-            return CircularProgressIndicator();
+            return Center(child: CircularProgressIndicator());
           }
         });
   }
