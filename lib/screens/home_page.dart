@@ -10,7 +10,7 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white10,
-        title: Text(
+        title: const Text(
           'New Trend',
           style: TextStyle(color: Colors.black54),
         ),
@@ -18,13 +18,13 @@ class HomePage extends StatelessWidget {
         actions: [
           IconButton(
               onPressed: () {},
-              icon: Icon(
+              icon: const Icon(
                 Icons.shopping_cart,
                 color: Colors.black,
               ))
         ],
       ),
-      body: ItemList(),
+      body: const ItemList(),
     );
   }
 }

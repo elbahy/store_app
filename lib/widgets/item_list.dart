@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:store_app/models/product_model.dart';
 import 'package:store_app/services/all_products_service.dart';
@@ -15,8 +14,8 @@ class ItemList extends StatelessWidget {
             List<ProductModel> product = snapshot.data!;
             return GridView.builder(
               itemCount: product.length,
-              gridDelegate:
-                  SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2),
               itemBuilder: (context, index) {
                 return Card(
                     elevation: 5,
@@ -36,7 +35,7 @@ class ItemList extends StatelessWidget {
                             Text(r'$' '${product[index].price}'),
                             IconButton(
                               color: Colors.red,
-                              icon: Icon(
+                              icon: const Icon(
                                 Icons.favorite,
                               ),
                               onPressed: () {},
@@ -48,7 +47,7 @@ class ItemList extends StatelessWidget {
               },
             );
           } else {
-            return Center(child: CircularProgressIndicator());
+            return const Center(child: CircularProgressIndicator());
           }
         });
   }
